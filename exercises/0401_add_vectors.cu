@@ -2,6 +2,12 @@
 
 #define N 10
 
+__global__ void add (int * a, int * b, int * c) {
+    int tid = blockIdx.x;
+    if (tid < N)
+        c[tid] = a[tid] + b[tid];
+}
+
 int main (void) {
     int a[N], b[N], c[N];
     int *dev_a, *dev_b, *dev_c;
@@ -28,7 +34,7 @@ int main (void) {
     HANDLE_ERROR(cudaMemcpy(c, dev_c, N * sizeof(int), cudaMemcpyDeviceToHost));
 
     // Display the results
-    for (int i = 0; i < N, i++)
+    for (int i = 0; i < N; i++)
     {
         printf("%d + %d = %d\n", a[i], b[i], c[i]);
     }
@@ -41,10 +47,5 @@ int main (void) {
     return 0;
 }
 
-__global__ void add (int * a, int * b, int * c) {
-    int tid = blockIdx.x;
-    if (tid < N)
-        c[tid] = a[tid] + b[tid];
-}
 
 
