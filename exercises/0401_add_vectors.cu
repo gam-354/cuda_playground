@@ -1,6 +1,6 @@
 #include "../common/book.h"
 
-#define N 10
+#define N 1000
 
 __global__ void add (int * a, int * b, int * c) {
     int tid = blockIdx.x;
