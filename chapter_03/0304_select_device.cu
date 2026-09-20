@@ -5,7 +5,7 @@ int main( void ) {
     int dev;
     
     memset( &prop, 0, sizeof( cudaDeviceProp ) );
-    prop.major = 1;
+    prop.major = 9;
     prop.minor = 3;
 
     HANDLE_ERROR( cudaChooseDevice( &dev, &prop ) );
