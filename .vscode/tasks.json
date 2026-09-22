@@ -1,0 +1,25 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "CUDA: Compilar y Ejecutar",
+      "type": "shell",
+      "command": "call \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat\" && nvcc -I common -L \"${workspaceFolder}\\lib\" \"${file}\" -o \"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe\" && set \"PATH=${workspaceFolder}\\bin;%PATH%\" && \"${workspaceFolder}\\build\\${fileBasenameNoExtension}.exe\"",
+      "options": {
+        "shell": {
+          "executable": "C:\\Windows\\System32\\cmd.exe",
+          "args": ["/d", "/c"]
+        }
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$msCompile"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}
