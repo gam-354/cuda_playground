@@ -1,5 +1,3 @@
-%%writefile {EXERCISES_DIR}/0402_julia.cu
-
 #include "../common/book.h"
 #include "../common/cpu_bitmap.h"
 
